@@ -2,7 +2,7 @@ body {
   font-family: Garamond;
 }
 
-h2.header {
+.header {
   font-style: italic;
 }
 
@@ -22,7 +22,7 @@ th {
   padding-bottom: 2px;
 }
 
-div.menu-layout {
+.menu-layout {
   text-align: center;
   max-width: 740px;
   margin: auto;
