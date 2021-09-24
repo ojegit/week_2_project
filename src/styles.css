@@ -1,3 +1,22 @@
 body {
-  font-family: sans-serif;
+  font-family: Garamond;
+}
+
+h2.header {
+  font-style: italic;
+}
+
+#menu-table {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+
+tr:nth-child(even) {
+  background-color: gainsboro;
+}
+
+th {
+  background-color: rgb(120, 120, 100);
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
