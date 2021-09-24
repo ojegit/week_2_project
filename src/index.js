@@ -46,6 +46,6 @@ function initializeCode() {
       strRating +
       '</div><div class="comment-text">' +
       textAreaValue +
-      '</div><button class="delete-review" style="display:none;" onclick="removeComment(this);">Remove</button></div>';
+      '</div><button class="delete-review" style="display:none;" onclick="return this.parentNode.remove();">Remove</button></div>';
   });
 }
