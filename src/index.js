@@ -13,16 +13,9 @@ if (document.readyState !== "loading") {
 }
 
 function initializeCode() {
-  var addCommentButton = document.getElementById("add-comment");
   var removeCommentsButton = document.getElementById("remove-comments");
   var list = document.getElementById("comment-list");
   var submitButton = document.getElementById("submit-button");
-
-  // Add comment from the textarea to the list
-  addCommentButton.addEventListener("click", function () {
-    var textAreaValue = document.getElementById("comment-area").value;
-    list.innerHTML += "<li>" + textAreaValue + "</li>";
-  });
 
   // Remove all comments from the list
   removeCommentsButton.addEventListener("click", function () {
