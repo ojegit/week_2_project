@@ -26,14 +26,16 @@ function initializeCode() {
 
   // Remove all comments from the list
   removeCommentsButton.addEventListener("click", function () {
-    var res = window.confirm("Are you sure you want to remove all comments?");
-    if (res == true) {
-      list.innerHTML = "";
-    }
+    //change visibility of remove buttons in the review list
+
+    var buttonList = document.getElementsByClassName("delete-review");
+
+    Array.prototype.forEach.call(buttonList, function (element) {
+      element.style = "block";
+    });
   });
 
   // Submit review
-
   submitButton.addEventListener("click", function () {
     var textAreaValue = document.getElementById("comment-area").value;
     var ratingValue = document.getElementById("select-feedback");
@@ -44,6 +46,6 @@ function initializeCode() {
       strRating +
       '</div><div class="comment-text">' +
       textAreaValue +
-      "</div></div>";
+      '</div><button class="delete-review" style="display:none;" onclick="removeComment(this);">Remove</button></div>';
   });
 }
