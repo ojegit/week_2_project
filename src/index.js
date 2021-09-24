@@ -41,6 +41,8 @@ function initializeCode() {
     var ratingValue = document.getElementById("select-feedback");
     var strRating = ratingValue.options[ratingValue.selectedIndex].text;
 
+    //https://stackoverflow.com/questions/46665554/remove-parent-element-on-click-with-plain-javascript
+
     list.innerHTML +=
       '<div class="comment"><div class="comment-rating">' +
       strRating +
