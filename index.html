@@ -6,7 +6,9 @@
     <script src="./src/index.js"></script>
   </head>
 
-  <body>
+  <body></body>
+
+  <div class="menu-layout">
     <h1>Hello World!</h1>
 
     <h2 class="header">Menu</h2>
@@ -42,16 +44,25 @@
 
     <h2 class="header">Reviews</h2>
 
-    <ul id="list"></ul>
+    <ul id="comment-list"></ul>
+
     <button id="add-comment">Add Comment</button><br />
 
     <textarea id="comment-area"></textarea><br />
 
     <button id="remove-comments">Remove Comments</button>
 
-    <!-- 
-    <div id="app"></div>
-    <script src="src/index.js"></script>
-    -->
-  </body>
+    <form name="feedback-form" onsubmit="return false">
+      <!-- important: 
+        https://stackoverflow.com/questions/19454310/stop-form-refreshing-page-on-submit
+        add this to onsubmit or the webpage will refresh and the code will not work properly!-->
+      <select id="select-feedback">
+        <option value="1">Very Poor</option>
+        <option value="2">Poor</option>
+        <option value="3">Good</option>
+        <option value="4">Very Good</option>
+      </select>
+      <input type="submit" value="Submit" id="submit-button" />
+    </form>
+  </div>
 </html>
