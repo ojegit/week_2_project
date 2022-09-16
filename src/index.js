@@ -13,18 +13,38 @@ if (document.readyState !== "loading") {
 }
 
 function initializeCode() {
-  var removeCommentsButton = document.getElementById("remove-comments");
-  var list = document.getElementById("comment-list");
-  var submitButton = document.getElementById("submit-button");
   var submitDataButton = document.getElementById("submit-data");
-
   var menuTable = document.getElementById("menu-table");
+  var emptyTableButton = document.getElementById("empty-table");
+  var inputImageButton = document.getElementById("input-image");
 
-  submitDataButton.addEventListener("click", function () {
+  // empty table
+  emptyTableButton.addEventListener("click", function () {
+    var menuTable = document.getElementById("menu-table");
+    while (menuTable.rows.length > 1) {
+      menuTable.deleteRow(1);
+    }
+  });
+
+  //placeholder for the image event here
+  var imgFile;
+
+  // add lister to input image button
+  inputImageButton.addEventListener("change", (event) => {
+    imgFile = event.target.files;
+    //console.log(imgFile);
+  });
+
+  // add data from form to table
+  submitDataButton.addEventListener("click", () => {
     var userNameValue = document.getElementById("input-username").value;
     var emailValue = document.getElementById("input-email").value;
     var addressValue = document.getElementById("input-address").value;
     var adminBoolean = document.getElementById("input-admin").checked;
+
+    //const fileList = event.target.files;
+    console.log(imgFile);
+
     var adminValue = "-";
     if (adminBoolean === true) {
       adminValue = "X";
@@ -35,45 +55,32 @@ function initializeCode() {
     var email = document.createElement("td");
     var address = document.createElement("td");
     var admin = document.createElement("td");
+    var img = document.createElement("td");
+
+    //
+    const reader = new FileReader();
+    if (imgFile) {
+      reader.readAsDataURL(imgFile[0]);
+    }
+    var img_ = document.createElement("img");
+    img_.src = reader.result;
+    img_.height = 64;
+    img_.width = 64;
+
+    //
 
     uname.appendChild(document.createTextNode(userNameValue));
     email.appendChild(document.createTextNode(emailValue));
     address.appendChild(document.createTextNode(addressValue));
-
     admin.appendChild(document.createTextNode(adminValue));
+    img.appendChild(img_);
 
     row.appendChild(uname);
     row.appendChild(email);
     row.appendChild(address);
     row.appendChild(admin);
+    row.appendChild(img);
 
     menuTable.appendChild(row);
-  });
-
-  // Remove all comments from the list
-  removeCommentsButton.addEventListener("click", function () {
-    //change visibility of remove buttons in the review list
-
-    var buttonList = document.getElementsByClassName("delete-review");
-
-    Array.prototype.forEach.call(buttonList, function (element) {
-      element.style = "block";
-    });
-  });
-
-  // Submit review
-  submitButton.addEventListener("click", function () {
-    var textAreaValue = document.getElementById("comment-area").value;
-    var ratingValue = document.getElementById("select-feedback");
-    var strRating = ratingValue.options[ratingValue.selectedIndex].text;
-
-    //https://stackoverflow.com/questions/46665554/remove-parent-element-on-click-with-plain-javascript
-
-    list.innerHTML +=
-      '<div class="comment"><div class="comment-rating">' +
-      strRating +
-      '</div><div class="comment-text">' +
-      textAreaValue +
-      '</div><button class="delete-review" style="display:none;" onclick="return this.parentNode.remove();">Remove</button></div>';
   });
 }
