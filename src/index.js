@@ -12,6 +12,24 @@ if (document.readyState !== "loading") {
   });
 }
 
+function loop_table(userName) {
+  var table = document.getElementById("menu-table");
+  for (let i in table.rows) {
+    let row = table.rows[i];
+    //iterate through rows
+    //rows would be accessed using the "row" variable assigned in the for loop
+    for (let j in row.cells) {
+      let col = row.cells[j];
+      //console.log(col.innerHTML);
+      if (col.innerHTML == userName) {
+        return row;
+      }
+      //iterate through columns
+      //columns would be accessed using the "col" variable assigned in the for loop
+    }
+  }
+}
+
 function initializeCode() {
   var submitDataButton = document.getElementById("submit-data");
   var menuTable = document.getElementById("menu-table");
@@ -37,6 +55,8 @@ function initializeCode() {
 
   // add data from form to table
   submitDataButton.addEventListener("click", () => {
+    console.log(loop_table("Webmaster"));
+
     var userNameValue = document.getElementById("input-username").value;
     var emailValue = document.getElementById("input-email").value;
     var addressValue = document.getElementById("input-address").value;
