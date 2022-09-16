@@ -12,7 +12,7 @@ if (document.readyState !== "loading") {
   });
 }
 
-function loop_table(userName) {
+function find_row_table(userName) {
   var table = document.getElementById("menu-table");
   for (let i in table.rows) {
     let row = table.rows[i];
@@ -26,6 +26,24 @@ function loop_table(userName) {
       }
       //iterate through columns
       //columns would be accessed using the "col" variable assigned in the for loop
+    }
+  }
+}
+
+function set_row_table(srow) {
+  var table = document.getElementById("menu-table");
+  var uname = srow.cells[0].innerHTML;
+
+  for (let i in table.rows) {
+    let row = table.rows[i];
+    //iterate through rows
+    //rows would be accessed using the "row" variable assigned in the for loop
+    for (let j in row.cells) {
+      let col = row.cells[j];
+      //console.log(col.innerHTML);
+      if (col.innerHTML == uname) {
+        row.cells[j] = srow.cells[j];
+      }
     }
   }
 }
@@ -55,7 +73,12 @@ function initializeCode() {
 
   // add data from form to table
   submitDataButton.addEventListener("click", () => {
-    console.log(loop_table("Webmaster"));
+    //1. When submit is pressed check if the set username exists (regardless of other columns)
+    //2. If it does then fetch the corresponding row:
+    //a) add the column values BACK to the form
+    //b) when submit is pressed then values are updated
+    //3. If it doesn't then add the row
+    console.log(find_row_table("Webmaster"));
 
     var userNameValue = document.getElementById("input-username").value;
     var emailValue = document.getElementById("input-email").value;
