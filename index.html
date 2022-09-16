@@ -20,29 +20,41 @@
         <th>Admin</th>
       </tr>
       <tr>
-        <td>Meal 1</td>
-        <td>6,99 €</td>
+        <td>Webmaster</td>
+        <td>example@email.com</td>
+        <td>Demoland 123</td>
+        <td>X</td>
       </tr>
       <tr>
-        <td>Meal 2</td>
-        <td>14,89 €</td>
+        <td>User123</td>
+        <td>example@email.com</td>
+        <td>Userplace 321</td>
+        <td>-</td>
       </tr>
-
       <tr>
-        <td>Meal 3</td>
-        <td>5,12 €</td>
-      </tr>
-
-      <tr>
-        <td>Meal 4</td>
-        <td>10,00 €</td>
-      </tr>
-
-      <tr>
-        <td>Meal 5</td>
-        <td>5,12 €</td>
+        <td>AnotherUser222</td>
+        <td>example@email.com</td>
+        <td>AnotherPlace 21</td>
+        <td>-</td>
       </tr>
     </table>
+
+    <!-- <form onsubmit="submitForm(); return false"> -->
+    <form onsubmit="return false">
+      <label for="username">username:</label><br />
+      <input type="text" id="input-username" name="username" /><br />
+
+      <label for="email">email:</label><br />
+      <input type="text" id="input-email" name="email" /><br />
+
+      <label for="address">address:</label><br />
+      <input type="text" id="input-address" name="address" /><br />
+
+      <label for="admin">admin:</label><br />
+      <input type="checkbox" id="input-admin" name="admin" value="true" /><br />
+
+      <input type="submit" id="submit-data" value="Submit" />
+    </form>
 
     <h2 class="header">Reviews</h2>
 
