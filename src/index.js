@@ -69,7 +69,7 @@ function initializeCode() {
     var newRow = createRow(formData);
 
     //see if the inputted column exists
-    //AND
+    // AND
     //it is found in the table
     if (formData[0] && rowNo !== -1) {
       console.log("EDIT");
