@@ -75,6 +75,23 @@ function initializeCode() {
       console.log("EDIT");
       replaceRow(menuTable.rows[rowNo], newRow);
 
+      var img = document.getElementById("input-image");
+      var imgFile = img.files[0];
+      if (imgFile) {
+        const reader = new FileReader();
+        reader.readAsDataURL(imgFile);
+        var imgTag = document.createElement("img");
+        //reader is asynchronous!
+        reader.onload = function (e) {
+          //https://stackoverflow.com/questions/3814231/loading-an-image-to-a-img-from-input-file
+          imgTag.src = e.target.result;
+        };
+        imgTag.width = 64;
+        imgTag.height = 64;
+        console.log(imgTag);
+        menuTable.lastChild.cells[4].appendChild(imgTag);
+      }
+
       //if not, then a new row is added at the end of the table
     } else {
       console.log("ADD");
