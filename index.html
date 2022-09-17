@@ -3,71 +3,68 @@
   <head>
     <title>Parcel Sandbox</title>
     <meta charset="UTF-8" />
-    <script src="./src/index.js"></script>
+    <link rel="stylesheet" href="./src/styles.css" />
+    <script type="text/javascript" src="./src/index.js"></script>
   </head>
 
   <body></body>
 
   <div class="menu-layout">
-    <h1>Hello World!</h1>
-
-    <h2 class="header">Menu</h2>
     <table id="menu-table">
       <tr>
-        <th>Name</th>
-        <th>Price</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Admin</th>
+        <th>Image</th>
       </tr>
       <tr>
-        <td>Meal 1</td>
-        <td>6,99 €</td>
+        <td>Webmaster</td>
+        <td>example@email.com</td>
+        <td>Demoland 123</td>
+        <td>X</td>
+        <td></td>
       </tr>
       <tr>
-        <td>Meal 2</td>
-        <td>14,89 €</td>
+        <td>User123</td>
+        <td>example@email.com</td>
+        <td>Userplace 321</td>
+        <td>-</td>
+        <td></td>
       </tr>
-
       <tr>
-        <td>Meal 3</td>
-        <td>5,12 €</td>
-      </tr>
-
-      <tr>
-        <td>Meal 4</td>
-        <td>10,00 €</td>
-      </tr>
-
-      <tr>
-        <td>Meal 5</td>
-        <td>5,12 €</td>
+        <td>AnotherUser222</td>
+        <td>example@email.com</td>
+        <td>AnotherPlace 21</td>
+        <td>-</td>
+        <td></td>
       </tr>
     </table>
 
-    <h2 class="header">Reviews</h2>
+    <form onsubmit="return false">
+      <label for="username">username:</label><br />
+      <input type="text" id="input-username" name="username" /><br />
 
-    <ul id="comment-list">
-      <div class="comment">
-        <div class="comment-rating"></div>
-        <div class="comment-text"></div>
-      </div>
-    </ul>
+      <label for="email">email:</label><br />
+      <input type="text" id="input-email" name="email" /><br />
 
-    <button id="add-comment">Add Comment</button><br />
+      <label for="address">address:</label><br />
+      <input type="text" id="input-address" name="address" /><br />
 
-    <textarea id="comment-area"></textarea><br />
+      <label for="admin">admin:</label><br />
+      <input type="checkbox" id="input-admin" name="admin" value="true" /><br />
 
-    <button id="remove-comments">Remove Comments</button>
+      <label for="image">image:</label><br />
+      <input
+        type="file"
+        id="input-image"
+        name="image"
+        accept=".png, .jpg, .jpeg"
+      /><br />
 
-    <form name="feedback-form" onsubmit="return false">
-      <!-- important: 
-        https://stackoverflow.com/questions/19454310/stop-form-refreshing-page-on-submit
-        add this to onsubmit or the webpage will refresh and the code will not work properly!-->
-      <select id="select-feedback">
-        <option value="1">Very Poor</option>
-        <option value="2">Poor</option>
-        <option value="3">Good</option>
-        <option value="4">Very Good</option>
-      </select>
-      <input type="submit" value="Submit" id="submit-button" />
+      <input type="submit" id="submit-data" value="Submit" />
     </form>
+
+    <button id="empty-table">Remove comments</button><br />
   </div>
 </html>
